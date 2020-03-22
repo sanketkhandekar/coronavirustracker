@@ -13,8 +13,8 @@
 	<artifactId>coronavirustracker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>coronavirustracker</name>
-	<description>Demo project for Spring Boot</description>
-
+	<description>Spring boot project for corona virus tracker</description>
+	<packaging>jar</packaging>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

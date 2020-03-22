@@ -70,12 +70,18 @@ public class CoronaVirusTrackerService {
 
 	@PostConstruct
 	@Scheduled(cron = "* * 1 * * *")
-	public void fetchService() throws IOException, InterruptedException, ParseException {
+	public void fetchService() {
 		List<RegionDto> newregionDtos = new ArrayList<>();
-		getTotalNoOfDeath();
-		getTotalNoOfRecovered();
-		newregionDtos = getVirusDataForConfirmedCase(newregionDtos);
-		this.regionDtos = newregionDtos;
+		try {
+			getTotalNoOfDeath();
+
+			getTotalNoOfRecovered();
+			newregionDtos = getVirusDataForConfirmedCase(newregionDtos);
+			this.regionDtos = newregionDtos;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private List<RegionDto> getVirusDataForConfirmedCase(List<RegionDto> newregionDtos)
