@@ -8,4 +8,4 @@ https://github.com/CSSEGISandData/COVID-19
 
 The project uses SpringBoot, Thymeleaf and bootstrap css to present the data.
 
-Inspiration from Reference - tutorial by java brains for this (https://www.youtube.com/watch?v=8hjNG9GZGnQ&t=116s)
+Inspiration from  tutorial by java brains for this (https://www.youtube.com/watch?v=8hjNG9GZGnQ&t=116s)
