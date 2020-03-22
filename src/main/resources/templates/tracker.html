@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Corona Virus Tracker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<h1>Corona virus Tracker Application</h1>
+		<p>This application lists the current number of cases reported
+			across the globe</p>
+		<div class="alert alert-primary" role="alert">
+			<h1 class="display-7" th:text="${totalCountTillNow} + ' total cases reported as of today '+ ${currentDate} "></h1>
+		</div>
+		<div class="alert alert-danger" role="alert">
+			<h1 class="display-7" th:text="${totalNewCases} + ' total new cases reported since previous date '+${previousDate}"></h1>
+		</div>
+		
+		
+		<table class="table table-bordered table-hover">
+			<thead class="thead-dark">
+			<tr>
+				<th>Country</th>
+				<th>Total cases reported</th>
+				<th>Changes since last day</th>
+				<th>Total death</th>
+				<th>Total recovered</th>
+				<th>Total death ratio against total cases </th>
+				<th>Total recovered ratio against total cases </th>
+			</tr>
+			</thead>
+			<tr th:each="region : ${regions}">
+				<td th:text="${region.country}"></td>
+				<td th:text="${region.latestTotalCases}">0</td>
+				<td th:text="${region.differenceFromPreviousDay}">0</td>
+				<td th:text="${region.totalDeath}">0</td>
+				<td th:text="${region.totalRecovered}">0</td>
+				<td th:text="${region.totalDeathPercentage}">0</td>
+				<td th:text="${region.totalRecoveredPercentage}">0</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="card text-white bg-dark mb-3">
+    <div class="text-white">Data source : Data repository by Johns Hopkins CSSE for educational purpose only:
+        <a class="text-white" target="_blank" href="https://github.com/CSSEGISandData/COVID-19">https://github.com/CSSEGISandData/COVID-19</a>
+      </div>
+
+      <p class="text-white">
+        <span>Application source code at : </span>
+        <span>
+            <a class="text-white" target="_blank" href="https://github.com/viralharia/coronavirus-tracker">https://github.com/viralharia/coronavirus-tracker</a>
+        </span>
+      </p>
+      
+  </div>
+
+</body>
+
+</html>
